@@ -1,0 +1,9 @@
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        keySet = set()
+        for num in nums:
+            if num not in keySet:
+                keySet.add(num)
+            else:
+                return True
+        return False

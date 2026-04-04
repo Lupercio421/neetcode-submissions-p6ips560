@@ -1,0 +1,15 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        
+        stack = []
+        closeToMap = {"}":"{", ")":"(", "]":"["}
+
+        for c in s:
+            if c in closeToMap:
+                if stack and stack[-1] == closeToMap[c]:
+                    stack.pop()
+                else: #eg: "[}"
+                    return False
+            else:
+                stack.append(c)
+        return True if not stack else False
